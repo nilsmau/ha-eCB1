@@ -82,9 +82,9 @@ class WallboxNumber(WallboxEntity, NumberEntity):
     @property
     def value(self) -> float | None:
         """Return the state of the sensor."""
-            return cast(
-               Optional[float], self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
-            )
+        return cast(
+            Optional[float], self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
+        )
 
     async def async_set_value(self, value: float) -> None:
         """Set the value of the entity."""

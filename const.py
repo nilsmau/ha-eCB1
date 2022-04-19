@@ -1,10 +1,13 @@
 """Constants for the Wallbox integration."""
 
+from .obis import *
+
 DOMAIN = "ha-eCB1"
 UPDATE_INTERVAL = 10
 
 #CONF_MAX_AVAILABLE_POWER_KEY = "max_available_power"
 #CONF_MAX_CHARGING_CURRENT_KEY = "max_charging_current"
+CONF_ACT_CHARGING_CURRENT_KEY = "currentpwmamp"
 CONF_ADDED_ENERGY_KEY = "added_energy"
 CONF_ADDED_RANGE_KEY = "added_range"
 CONF_AI_MODE_KEY = "autostartstop"
@@ -16,14 +19,17 @@ CONF_CHARGING_TIME_KEY = "charging_time"
 CONF_CONNECTED_KEY = "connected"
 CONF_CONNECTIONS = "connections"
 CONF_COST_KEY = "cost"
-CONF_ACT_CHARGING_CURRENT_KEY = "currentpwmamp"
+
 CONF_CURRENT_MODE_KEY = "mode"
 CONF_CURRENT_VERSION_KEY = "currentVersion"
 CONF_DATA_KEY = "chargecontrol"
 CONF_DEPOT_PRICE_KEY = "depot_price"
+# CONF_KWH_OUT_KEY = "1-0:1.8.0"
+# CONF_KWH_IN_KEY = "1-0:2.8.0"
 CONF_LOCKED_UNLOCKED_KEY = "stateid"
 CONF_MAX_AVAILABLE_POWER_KEY = "supplylinemaxamp"
 CONF_MAN_CHARGING_CURRENT_KEY = "manualmodeamp"
+CONF_METERS_KEY = "meter"
 CONF_NAME_KEY = "name"
 #CONF_PART_NUMBER_KEY = "part_number"
 CONF_PART_NUMBER_KEY = "type"

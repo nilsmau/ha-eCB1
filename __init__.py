@@ -138,12 +138,13 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             data[CONF_CHARGING_MODES_KEY] = T
 
             data[CONF_AI_MODE_KEY] = self._wallbox.getAutoStartStopMode(self._station)[CONF_AI_MODE_KEY]
+            data[CONF_DATA_KEY] = data[CONF_DATA_KEY] | self._wallbox.getMetersData(self._station)[CONF_METERS_KEY]['data']
 
         #    data[CONF_STATUS_DESCRIPTION_KEY] = CHARGER_STATUS.get(
         #        data[CONF_STATUS_ID_KEY], "Unknown"
         #    )
-        
-        #    _LOGGER.log(20, data)
+
+            _LOGGER.log(20, data)
             return data
 
         except requests.exceptions.HTTPError as wallbox_connection_error:
