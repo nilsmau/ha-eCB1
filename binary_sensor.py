@@ -69,7 +69,8 @@ class WallboxBinarySensor(WallboxEntity, BinarySensorEntity):
         self._attr_unique_id = f"{description.key}-{coordinator.data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY]}"
 
     def update(self) -> bool:
-        if self.is_on:
-            self.is_on = False
-        else:
-            self.is_on = True
+        self.is_on = coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY]
+        # if self.is_on:
+        #     self.is_on = False
+        # else:
+        #     self.is_on = True
