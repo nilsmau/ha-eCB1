@@ -73,14 +73,28 @@ class WallboxNumber(WallboxEntity, NumberEntity):
 
 
 
+    # @property
+    # def max_value(self) -> float:
+    #     """Return the maximum available current."""
+    #     if self.entity_description.key == CONF_MAN_CHARGING_CURRENT_KEY:
+    #         return cast(float, self.coordinator.data[CONF_DATA_KEY][CONF_MAX_AVAILABLE_POWER_KEY])
+
     @property
-    def max_value(self) -> float:
+    def native_max_value(self) -> float:
         """Return the maximum available current."""
         if self.entity_description.key == CONF_MAN_CHARGING_CURRENT_KEY:
             return cast(float, self.coordinator.data[CONF_DATA_KEY][CONF_MAX_AVAILABLE_POWER_KEY])
 
+
+    # @property
+    # def value(self) -> float | None:
+    #     """Return the state of the sensor."""
+    #     return cast(
+    #         Optional[float], self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
+    #     )
+
     @property
-    def value(self) -> float | None:
+    def native_value(self) -> float | None:
         """Return the state of the sensor."""
         return cast(
             Optional[float], self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
