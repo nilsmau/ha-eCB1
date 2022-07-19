@@ -30,7 +30,7 @@ NUMBER_TYPES: dict[str, WallboxNumberEntityDescription] = {
     CONF_MAN_CHARGING_CURRENT_KEY: WallboxNumberEntityDescription(
         key=CONF_MAN_CHARGING_CURRENT_KEY,
         name="Manual Charging Current",
-        min_value=6
+        native_min_value=6
     ),
 }
 
@@ -105,7 +105,7 @@ class WallboxNumber(WallboxEntity, NumberEntity):
             Optional[float], self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
         )
 
-    async def async_set_value(self, value: float) -> None:
+    async def async_set_native_value(self, value: float) -> None:
         """Set the value of the entity."""
         if self.entity_description.key == CONF_MAN_CHARGING_CURRENT_KEY:
             await self.coordinator.async_set_charging_current(value)
