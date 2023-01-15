@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from typing import Any
+import logging
 
 from homeassistant.components.lock import LockEntity, LockEntityDescription
 from homeassistant.config_entries import ConfigEntry
@@ -20,10 +21,11 @@ from .const import (
 LOCK_TYPES: dict[str, LockEntityDescription] = {
     CONF_LOCKED_UNLOCKED_KEY: LockEntityDescription(
         key=CONF_LOCKED_UNLOCKED_KEY,
-        name="Locked",
+        name="Lock",
     ),
 }
 
+_LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
@@ -66,7 +68,13 @@ class WallboxLock(WallboxEntity, LockEntity):
     @property
     def is_locked(self) -> bool:
         """Return the status of the lock."""
-        return self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY]  # type: ignore[no-any-return]
+        _LOGGER.log(20, self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY])
+        if (self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == 17) :
+            return True # self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY]  # type: ignore[no-any-return]
+        elif (self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == "17"):
+            return True
+        else:
+            return False
 
     async def async_lock(self, **kwargs: Any) -> None:
         """Lock charger."""

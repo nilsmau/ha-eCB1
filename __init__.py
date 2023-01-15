@@ -130,6 +130,7 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 
             data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY] = system_info[CONF_SERIAL_NUMBER_KEY]
             data[CONF_LOCKED_UNLOCKED_KEY] = data[CONF_DATA_KEY][CONF_LOCKED_UNLOCKED_KEY]
+            #_LOGGER.log(20, data[CONF_LOCKED_UNLOCKED_KEY])
 
             CHARGING_MODES = self._wallbox.getChargingModes()
             T = []
@@ -144,7 +145,7 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         #        data[CONF_STATUS_ID_KEY], "Unknown"
         #    )
 
-            _LOGGER.log(20, data)
+            _LOGGER.log(10, data)
             return data
 
         except requests.exceptions.HTTPError as wallbox_connection_error:
