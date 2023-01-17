@@ -68,7 +68,7 @@ class WallboxLock(WallboxEntity, LockEntity):
     @property
     def is_locked(self) -> bool:
         """Return the status of the lock."""
-        _LOGGER.log(20, self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY])
+        #_LOGGER.log(20, self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY])
         if (self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == 17) :
             return True # self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY]  # type: ignore[no-any-return]
         elif (self.coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == "17"):

@@ -8,8 +8,14 @@ from typing import cast
 from homeassistant.components.select import SelectEntity, SelectEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.core import callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
 
 from . import WallboxCoordinator, WallboxEntity
 from .const import *
@@ -66,6 +72,11 @@ class WallboxModeSelector(WallboxEntity, SelectEntity):
         """return the current preset"""
         return self.coordinator.data[CONF_DATA_KEY][CONF_CURRENT_MODE_KEY]
 
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self._attr_current_option = self.coordinator.data[CONF_DATA_KEY][CONF_CURRENT_MODE_KEY]
+        self.async_write_ha_state()
 
     async def async_select_option(self, option: str) -> None:
         """if user choses a different option send it to wallbox"""

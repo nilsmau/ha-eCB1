@@ -145,7 +145,7 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         #        data[CONF_STATUS_ID_KEY], "Unknown"
         #    )
 
-            _LOGGER.log(10, data)
+            #_LOGGER.log(10, data)
             return data
 
         except requests.exceptions.HTTPError as wallbox_connection_error:

@@ -14,7 +14,12 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
-
+from homeassistant.core import callback
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
 from . import WallboxCoordinator, WallboxEntity
 from .const import *
 
@@ -69,4 +74,39 @@ class WallboxBinarySensor(WallboxEntity, BinarySensorEntity):
         self._attr_unique_id = f"{description.key}-{coordinator.data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY]}"
 
     def update(self) -> bool:
-        self.is_on = coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY]
+        _LOGGER.log(20, self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY])
+        if self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == "false":
+            #self.is_on = False #coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY]
+            self._attr_is_on = False
+        elif self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == False:
+            #self.is_on = False
+            self._attr_is_on = False
+        else:
+            #self.is_on = True
+            self._attr_is_on = True
+
+    def async_update(self) -> bool:
+        _LOGGER.log(20, self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY])
+        if self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == "false":
+            #self.is_on = False #coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY]
+            self._attr_is_on = False
+        elif self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == False:
+            #self.is_on = False
+            self._attr_is_on = False
+        else:
+            #self.is_on = True
+            self._attr_is_on = True
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        if self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == "false":
+            #self.is_on = False #coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY]
+            self._attr_is_on = False
+        elif self.coordinator.data[CONF_DATA_KEY][CONF_CONNECTED_KEY] == False:
+            #self.is_on = False
+            self._attr_is_on = False
+        else:
+            #self.is_on = True
+            self._attr_is_on = True
+        self.async_write_ha_state()

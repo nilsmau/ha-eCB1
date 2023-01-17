@@ -13,6 +13,13 @@ from homeassistant.components.number import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.core import callback
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
+
 
 from . import InvalidAuth, WallboxCoordinator, WallboxEntity
 from .const import *
@@ -109,3 +116,9 @@ class WallboxNumber(WallboxEntity, NumberEntity):
         """Set the value of the entity."""
         if self.entity_description.key == CONF_MAN_CHARGING_CURRENT_KEY:
             await self.coordinator.async_set_charging_current(value)
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self._attr_native_value = self.coordinator.data[CONF_DATA_KEY][self.entity_description.key]
+        self.async_write_ha_state()

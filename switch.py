@@ -13,6 +13,12 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
+from homeassistant.core import callback
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
 
 from . import WallboxCoordinator, WallboxEntity
 from .const import *
@@ -90,6 +96,11 @@ class WallboxSwitch(WallboxEntity, SwitchEntity):
             self.coordinator.data[self.entity_description.key] = False
             await self.coordinator.aysnc_set_start_stop_mode(bool(0))
 
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self._attr_is_on = self.coordinator.data[self.entity_description.key]
+        self.async_write_ha_state()
     # def update(self) -> str | None:
     #     _LOGGER.log(20, "update called")
     #     self.is_on = self.coordinator.data[description.key]

@@ -1001,3 +1001,14 @@ class WallboxSensor(WallboxEntity, SensorEntity):
                 StateType,
                 round(self.coordinator.data[CONF_DATA_KEY][self.entity_description.key], 2)
             )
+
+    # def update(self) -> None:
+    #     if (sensor_round := self.entity_description.precision) is not None:
+    #         self._attr_native_value = cast(
+    #             StateType,
+    #             round(self.coordinator.data[CONF_DATA_KEY][self.entity_description.key], sensor_round),
+    #         )
+    #     self._attr_native_value = cast(
+    #             StateType,
+    #             round(self.coordinator.data[CONF_DATA_KEY][self.entity_description.key], 2)
+    #         )
