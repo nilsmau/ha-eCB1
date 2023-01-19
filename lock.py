@@ -35,7 +35,9 @@ async def async_setup_entry(
     # Check if the user is authorized to lock, if so, add lock component
     try:
         await coordinator.async_set_lock_unlock(
-            coordinator.data[CONF_LOCKED_UNLOCKED_KEY]
+            (coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == "4")
+            or
+            (coordinator.data[CONF_LOCKED_UNLOCKED_KEY] == "5")
         )
     except InvalidAuth:
         return
@@ -64,6 +66,7 @@ class WallboxLock(WallboxEntity, LockEntity):
         self.entity_description = description
         self._attr_name = f"{entry.title} {description.name}"
         self._attr_unique_id = f"{description.key}-{coordinator.data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY]}"
+
 
     @property
     def is_locked(self) -> bool:
