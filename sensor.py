@@ -82,7 +82,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy + ',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_ACTIVE_POWER_MINUS: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS,
@@ -110,7 +110,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy - ',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS,
@@ -264,7 +264,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy + (L1)',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_ACTIVE_POWER_MINUS_L1: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L1,
@@ -292,7 +292,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy - (L1)',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L1: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L1,
@@ -467,7 +467,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy + (L2)',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_ACTIVE_POWER_MINUS_L2: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L2,
@@ -495,7 +495,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy - (L2) ',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L2: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L2,
@@ -670,7 +670,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy + (L3)',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_ACTIVE_POWER_MINUS_L3: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L3,
@@ -698,7 +698,7 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
             name='Active energy - (L3) ',
             native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
-            state_class=SensorStateClass.MEASUREMENT
+            state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L3: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L3,
