@@ -5,8 +5,8 @@
   "documentation": "https://www.github.com/nilsmau/eCB1",
   "domain": "ha-eCB1",
   "name": "eCharge Hardy Barth",
-  "requirements": ["eCB1==0.0.11"],
+  "requirements": ["eCB1==0.0.13"],
   "iot_class": "local_polling",
   "loggers": ["ha-eCB1"],
-  "version": "0.0.12"
+  "version": "0.0.14"
 }
