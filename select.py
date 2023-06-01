@@ -37,14 +37,16 @@ async def async_setup_entry(
     """Create wallbox lock entities in HASS."""
     coordinator: WallboxCoordinator = hass.data[DOMAIN][entry.entry_id]
     # Check if the user is authorized to lock, if so, add lock component
-
-    async_add_entities(
-        [
-            WallboxModeSelector(coordinator, entry, description)
-            for ent in coordinator.data
-            if (description := SELECT_TYPES.get(ent))
-        ]
-    )
+    try:
+        async_add_entities(
+            [
+                WallboxModeSelector(coordinator, entry, description)
+                for ent in coordinator.data
+                if (description := SELECT_TYPES.get(ent))
+            ]
+        )
+    except:
+        return
 
 class WallboxModeSelector(WallboxEntity, SelectEntity):
     """Representation of a wallbox Mode Selector."""

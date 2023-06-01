@@ -84,7 +84,7 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 
     def __init__(self, station: str, wallbox: Wallbox, hass: HomeAssistant) -> None:
         """Initialize."""
-        self._station = 1 #station
+        self._station = station
         self._wallbox = wallbox
 
         super().__init__(
@@ -120,16 +120,23 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         """Get new sensor data for Wallbox component."""
         try:
             self._authenticate()
-            data: dict[str, Any] = self._wallbox.getChargerStatus(self._station)
-            data[CONF_MAX_AVAILABLE_POWER_KEY] = data[CONF_DATA_KEY][CONF_MAX_AVAILABLE_POWER_KEY]
+            #data: dict[str, Any] = self._wallbox.getChargerStatus(self._station)
+            data = {}
+            try:
+                data = self._wallbox.getChargerStatus(self._station)
+                data[CONF_MAX_AVAILABLE_POWER_KEY] = data[CONF_DATA_KEY][CONF_MAX_AVAILABLE_POWER_KEY]
+                data[CONF_LOCKED_UNLOCKED_KEY] = data[CONF_DATA_KEY][CONF_LOCKED_UNLOCKED_KEY]
+                data[CONF_AI_MODE_KEY] = self._wallbox.getAutoStartStopMode(self._station)[CONF_AI_MODE_KEY]
+                #_LOGGER.log(10, data)
+            except:
+                pass
 
             system_info: dict[str, Any] = self._wallbox.getSystemInformation()
 
             #ata[CONF_NAME_KEY] = system_info['company']
             data[CONF_SYS_INFO_KEY] = system_info
 
-            data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY] = system_info[CONF_SERIAL_NUMBER_KEY]
-            data[CONF_LOCKED_UNLOCKED_KEY] = data[CONF_DATA_KEY][CONF_LOCKED_UNLOCKED_KEY]
+
             #_LOGGER.log(20, data[CONF_LOCKED_UNLOCKED_KEY])
 
             CHARGING_MODES = self._wallbox.getChargingModes()
@@ -138,14 +145,18 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 T.append(CHARGING_MODES[i])
             data[CONF_CHARGING_MODES_KEY] = T
 
-            data[CONF_AI_MODE_KEY] = self._wallbox.getAutoStartStopMode(self._station)[CONF_AI_MODE_KEY]
-            data[CONF_DATA_KEY] = data[CONF_DATA_KEY] | self._wallbox.getMetersData(self._station)[CONF_METERS_KEY]['data']
+            try:
+                data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY] = str(system_info[CONF_SERIAL_NUMBER_KEY])+"-"+str(self._station)
+                data[CONF_DATA_KEY] = data[CONF_DATA_KEY] | self._wallbox.getMetersData(self._station)[CONF_METERS_KEY]['data']
+            except:
+                meter = self._wallbox.getMetersData(self._station)
+                data[CONF_DATA_KEY] = meter[CONF_METERS_KEY]['data']
+                data[CONF_DATA_KEY][CONF_SERIAL_NUMBER_KEY] = str(system_info[CONF_SERIAL_NUMBER_KEY])+"-"+str(self._station)
+                data[CONF_DATA_KEY]['id'] = self._station
+                data[CONF_DATA_KEY][CONF_PART_NUMBER_KEY] = meter[CONF_METERS_KEY][CONF_PART_NUMBER_KEY]
 
-        #    data[CONF_STATUS_DESCRIPTION_KEY] = CHARGER_STATUS.get(
-        #        data[CONF_STATUS_ID_KEY], "Unknown"
-        #    )
 
-            #_LOGGER.log(10, data)
+            _LOGGER.log(10, data)
             return data
 
         except requests.exceptions.HTTPError as wallbox_connection_error:

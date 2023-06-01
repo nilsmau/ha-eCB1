@@ -8,5 +8,5 @@
   "requirements": ["eCB1==0.0.14"],
   "iot_class": "local_polling",
   "loggers": ["ha-eCB1"],
-  "version": "0.0.14"
+  "version": "0.0.15"
 }

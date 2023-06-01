@@ -41,6 +41,9 @@ async def async_setup_entry(
         )
     except InvalidAuth:
         return
+    except KeyError:
+        #no log in data set!
+        return
 
     async_add_entities(
         [

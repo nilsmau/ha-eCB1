@@ -3,17 +3,23 @@
     "step": {
       "user": {
         "data": {
-          "station": "Station Serial Number",
+          "url": "IP address",
+          "station": "Socket-ID",
           "username": "[%key:common::config_flow::data::username%]",
           "password": "[%key:common::config_flow::data::password%]"
-        }
+        },
+        "description": "Enter Login Data for eCB1",
+        "title": "Login-Data"
       },
       "reauth_confirm": {
         "data": {
           "username": "[%key:common::config_flow::data::username%]",
           "password": "[%key:common::config_flow::data::password%]"
         }
-      }
+      },
+      "socket": {
+
+      },
     },
     "error": {
       "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
@@ -23,7 +29,8 @@
     },
     "abort": {
       "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]",
+      "socket_not_found": "Socket Id provided could not be found on eCB1"
     }
   }
 }
