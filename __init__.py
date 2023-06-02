@@ -156,7 +156,7 @@ class WallboxCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 data[CONF_DATA_KEY][CONF_PART_NUMBER_KEY] = meter[CONF_METERS_KEY][CONF_PART_NUMBER_KEY]
 
 
-            _LOGGER.log(10, data)
+            #_LOGGER.log(10, data)
             return data
 
         except requests.exceptions.HTTPError as wallbox_connection_error:
