@@ -59,21 +59,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_PLUS: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS,
             name='Active Power +',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_MIN,
             name='Active Power + min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_MAX,
             name='Active Power + max',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -87,21 +90,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_MINUS: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS,
             name='Active power -',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_MIN,
             name='Active power - min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_MAX,
             name='Active power - max ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -241,21 +247,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_PLUS_L1: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L1,
             name='Active power + (L1)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L1_MIN,
             name='Active power + (L1) min',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L1_MAX,
             name='Active power + (L1) max',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -269,21 +278,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_MINUS_L1: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L1,
             name='Active power - (L1)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L1_MIN,
             name='Active power - (L1) min',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L1_MAX,
             name='Active power - (L1) max',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -444,21 +456,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_PLUS_L2: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L2,
             name='Active power + (L2)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L2_MIN,
             name='Active power + (L2) min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L2_MAX,
             name='Active power + (L2) max ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -472,21 +487,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_MINUS_L2: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L2,
             name='Active power - (L2)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L2_MIN,
             name='Active power - (L2) min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L2_MAX,
             name='Active power - (L2) max ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -647,21 +665,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_PLUS_L3: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L3,
             name='Active power + (L3)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L3_MIN,
             name='Active power + (L3) min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_PLUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_PLUS_L3_MAX,
             name='Active power + (L3) max ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -675,21 +696,24 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_POWER_MINUS_L3: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L3,
             name='Active power - (L3)',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L3_MIN,
             name='Active power - (L3) min ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_ACTIVE_POWER_MINUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_POWER_MINUS_L3_MAX,
             name='Active power - (L3) max ',
-            native_unit_of_measurement=POWER_WATT,
+            #native_unit_of_measurement=POWER_WATT,
+            native_unit_of_measurement=UnitOfPower.WATT,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
