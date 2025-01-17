@@ -107,7 +107,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=COMPONENT_DOMAIN):
             if not self._reauth_entry:
                 self._abort_if_unique_id_configured()
                 info = await validate_input(self.hass, user_input)
-                if info['error'] is "":
+                if info['error'] == "":
                     return self.async_create_entry(title=info["title"], data=user_input)
                 else:
                     return self.async_abort(reason="socket_not_found")

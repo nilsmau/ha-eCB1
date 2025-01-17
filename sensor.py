@@ -83,7 +83,8 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_PLUS: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_PLUS,
             name='Active energy + ',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
@@ -114,91 +115,104 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_MINUS: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_MINUS,
             name='Active energy - ',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS,
             name='Reactive power +  ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_MIN,
             name='Reactive power +  min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_MAX,
             name='Reactive power + max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS,
             name='Reactive power - ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_MIN,
             name='Reactive power - min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_MAX,
             name='Reactive power - max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS,
             name='Apparent power + ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_MIN,
             name='Apparent power + min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_MAX,
             name='Apparent power + max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS,
             name='Apparent power - ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_MIN,
             name='Apparent power - min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_MAX,
             name='Apparent power - max',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -226,21 +240,21 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_SUPPLY_FREQUENCY: WallboxSensorEntityDescription(
             key=OBIS_SUPPLY_FREQUENCY,
             name='Supply frequency',
-            native_unit_of_measurement=FREQUENCY_HERTZ,
+            native_unit_of_measurement=UnitOfFrequency.HERTZ,
             device_class=SensorDeviceClass.FREQUENCY,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_SUPPLY_FREQUENCY_MIN: WallboxSensorEntityDescription(
             key=OBIS_SUPPLY_FREQUENCY_MIN,
             name='Supply frequency min',
-            native_unit_of_measurement=FREQUENCY_HERTZ,
+            native_unit_of_measurement=UnitOfFrequency.HERTZ,
             device_class=SensorDeviceClass.FREQUENCY,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_SUPPLY_FREQUENCY_MAX: WallboxSensorEntityDescription(
             key=OBIS_SUPPLY_FREQUENCY_MAX,
             name='Supply frequency max',
-            native_unit_of_measurement=FREQUENCY_HERTZ,
+            native_unit_of_measurement=UnitOfFrequency.HERTZ,
             device_class=SensorDeviceClass.FREQUENCY,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -271,7 +285,8 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_PLUS_L1: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_PLUS_L1,
             name='Active energy + (L1)',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
@@ -302,133 +317,146 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_MINUS_L1: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_MINUS_L1,
             name='Active energy - (L1)',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L1: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L1,
             name='Reactive power + (L1)',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L1_MIN,
             name='Reactive power + (L1) min',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L1_MAX,
             name='Reactive power + (L1) max',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L1: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L1,
             name='Reactive power - (L1)',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L1_MIN,
             name='Reactive power - (L1) min',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L1_MAX,
             name='Reactive power - (L1) max',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L1: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L1,
             name='Apparent power + (L1)',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L1_MIN,
             name='Apparent power + (L1) min',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L1_MAX,
             name='Apparent power + (L1) max',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L1: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L1,
             name='Apparent power - (L1)',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L1_MIN,
             name='Apparent power - (L1) min',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L1_MAX,
             name='Apparent power - (L1) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            #native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L1: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L1,
             name='Current (L1)',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L1_MIN,
             name='Current (L1) min ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L1_MAX,
             name='Current (L1) max ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L1: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L1,
             name='Voltage (L1) ',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L1_MIN: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L1_MIN,
             name='Voltage (L1) min',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L1_MAX: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L1_MAX,
             name='Voltage (L1) max',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -480,7 +508,8 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_PLUS_L2: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_PLUS_L2,
             name='Active energy + (L2)',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
@@ -511,133 +540,134 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_MINUS_L2: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_MINUS_L2,
             name='Active energy - (L2) ',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L2: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L2,
             name='Reactive power + (L2) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L2_MIN,
             name='Reactive power + (L2) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L2_MAX,
             name='Reactive power + (L2) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L2: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L2,
             name='Reactive power - (L2) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L2_MIN,
             name='Reactive power - (L2) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L2_MAX,
             name='Reactive power - (L2) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L2: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L2,
             name='Apparent power + (L2) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L2_MIN,
             name='Apparent power + (L2) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L2_MAX,
             name='Apparent power + (L2) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L2: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L2,
             name='Apparent power - (L2) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L2_MIN,
             name='Apparent power - (L2) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L2_MAX,
             name='Apparent power - (L2) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L2: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L2,
             name='Current (L2) ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L2_MIN,
             name='Current (L2) min',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L2_MAX,
             name='Current (L2) max',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L2: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L2,
             name='Voltage (L2)',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L2_MIN: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L2_MIN,
             name='Voltage (L2) min',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L2_MAX: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L2_MAX,
             name='Voltage (L2) max',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -689,7 +719,8 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_PLUS_L3: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_PLUS_L3,
             name='Active energy + (L3)',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
@@ -720,133 +751,134 @@ OBIS_SENSORS: dict[str, WallboxSensorEntityDescription] = {
     OBIS_ACTIVE_ENERGY_MINUS_L3: WallboxSensorEntityDescription(
             key=OBIS_ACTIVE_ENERGY_MINUS_L3,
             name='Active energy - (L3) ',
-            native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            #native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
+            native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
             device_class=SensorDeviceClass.ENERGY,
             state_class=SensorStateClass.TOTAL_INCREASING
         ),
     OBIS_REACTIVE_POWER_PLUS_L3: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L3,
             name='Reactive power + (L3) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L3_MIN,
             name='Reactive power + (L3) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_PLUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_PLUS_L3_MAX,
             name='Reactive power + (L3) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L3: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L3,
             name='Reactive power - (L3) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L3_MIN,
             name='Reactive power - (L3) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_REACTIVE_POWER_MINUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_REACTIVE_POWER_MINUS_L3_MAX,
             name='Reactive power - (L3) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.REACTIVE_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L3: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L3,
             name='Apparent power + (L3) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L3_MIN,
             name='Apparent power + (L3) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_PLUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_PLUS_L3_MAX,
             name='Apparent power + (L3) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L3: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L3,
             name='Apparent power - (L3) ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L3_MIN,
             name='Apparent power - (L3) min ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_APPARENT_POWER_MINUS_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_APPARENT_POWER_MINUS_L3_MAX,
             name='Apparent power - (L3) max ',
-            native_unit_of_measurement=POWER_VOLT_AMPERE,
+            native_unit_of_measurement=UnitOfApparentPower.VOLT_AMPERE,
             device_class=SensorDeviceClass.APPARENT_POWER,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L3: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L3,
             name='Current (L3) ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L3_MIN,
             name='Current (L3) min ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_CURRENT_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_CURRENT_L3_MAX,
             name='Current (L3) max ',
-            native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+            native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
             device_class=SensorDeviceClass.CURRENT,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L3: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L3,
             name='Voltage (L3) ',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L3_MIN: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L3_MIN,
             name='Voltage (L3) min ',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
     OBIS_VOLTAGE_L3_MAX: WallboxSensorEntityDescription(
             key=OBIS_VOLTAGE_L3_MAX,
             name='Voltage (L3) max ',
-            native_unit_of_measurement=ELECTRIC_POTENTIAL_VOLT,
+            native_unit_of_measurement=UnitOfElectricPotential.VOLT,
             device_class=SensorDeviceClass.VOLTAGE,
             state_class=SensorStateClass.MEASUREMENT
         ),
@@ -886,7 +918,7 @@ SENSOR_TYPES: dict[str, WallboxSensorEntityDescription] = {
     #     key=CONF_MAX_AVAILABLE_POWER_KEY,
     #     name="Max Available Power",
     #     precision=0,
-    #     native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+    #     native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
     #     device_class=SensorDeviceClass.CURRENT,
     #     state_class=SensorStateClass.MEASUREMENT,
     # ),
@@ -945,14 +977,14 @@ SENSOR_TYPES: dict[str, WallboxSensorEntityDescription] = {
     CONF_MAX_AVAILABLE_POWER_KEY: WallboxSensorEntityDescription(
         key=CONF_MAX_AVAILABLE_POWER_KEY,
         name="Max. Avail. Charging Current",
-        native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     CONF_ACT_CHARGING_CURRENT_KEY: WallboxSensorEntityDescription(
         key=CONF_ACT_CHARGING_CURRENT_KEY,
         name="Actual Charging Current",
-        native_unit_of_measurement=ELECTRIC_CURRENT_AMPERE,
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
         state_class=SensorStateClass.MEASUREMENT,
     ),
